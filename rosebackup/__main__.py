@@ -1,9 +1,25 @@
+import os
 import sys
 from typing import Dict, List, Optional
 
 
+DIRS = ["/interface", "/ip", "/routing", "/system", "/tool", "/queue"]
+
+
+def get_folder(fname: str) -> str:
+    for d in DIRS:
+        if fname.startswith(d):
+            return fname.split(" ")[0].strip("/")
+    return ""
+
+
 def make_fname(fname: str) -> str:
-    return fname.lstrip("/").replace(" ", "-").strip("\n")
+    filename = fname.lstrip("/").replace(" ", "-").strip("\n")
+    folname = get_folder(fname)
+    if folname:
+        os.makedirs(folname, exist_ok=True)
+        return f"{folname}/{filename}"
+    return filename
 
 
 def save_dirf(fname: str, contents: List[str], headers: Optional[List[str]] = None):
