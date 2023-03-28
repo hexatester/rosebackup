@@ -2,10 +2,10 @@
 
 RouterOS backup &amp; restore toolkit
 
-## Commands
+## Features or Commands
 
 Split one file into multiple backup file
 
 ```cmd
-rosebackup split <filename>
+rosebackup <filename>
 ```
