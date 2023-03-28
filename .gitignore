@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Ignore .rsc
+*.rsc
+
+# Ignore IDE
+.vscode/
